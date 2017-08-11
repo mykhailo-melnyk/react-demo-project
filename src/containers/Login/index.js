@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {login} from '../../actions/userActions';
 import './index.css';
 import { Layout } from 'antd';
-import PremierLeagueLogo from './Premier_League_Logo.svg.png';
+import PremierLeagueLogo from '../../images/Premier_League_Logo.svg.png';
 const { Header, Footer, Sider, Content } = Layout;
 
 const FormItem = Form.Item;
@@ -76,4 +76,11 @@ class LoginForm extends Component {
 }
 
 const WrappedLoginForm = Form.create()(LoginForm);
-export default WrappedLoginForm;
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.userReducer
+    };
+};
+
+export default connect(mapStateToProps)(WrappedLoginForm);

@@ -4,6 +4,7 @@ import configureStore from './store/configureStore'
 import Login from "./containers/Login";
 import Home from "./containers/Home";
 import NotFound from "./containers/NotFound";
+import Registration from "./containers/Registration";
 import requireLogin from './containers/Authenticated'
 import {
     BrowserRouter as Router,
@@ -23,9 +24,9 @@ export default class App extends Component {
                 <Router basename="/">
                     <div>
                         <Switch>
-                            <Route path="/login" component={Login}/>
-                            <Route path="/not-found" component={NotFound}/>
-                            <Route component={requireLogin(Home)}/>
+                            <Route path="/login" exact component={Login}/>
+                            <Route path="/registration" exact component={Registration}/>
+                            <Route component={NotFound}/>
                         </Switch>
 
                     </div>
